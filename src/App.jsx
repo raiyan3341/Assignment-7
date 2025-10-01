@@ -1,12 +1,11 @@
 import React, { useState, Suspense } from "react";
 import Navbar from "./components/Navbar";
-import Banner from "./components/Banner";
+import Banner from "./components/banner";
 import Tickets from "./components/tickets";
 import Footer from "./components/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// Fetch tickets
 const ticketsPromise = fetch("./tickets.json").then((res) => res.json());
 
 function App() {
@@ -20,6 +19,7 @@ function App() {
   return (
     <>
       <Navbar></Navbar>
+
       <Banner inProgressCount={inProgressCount} resolvedCount={resolvedCount}></Banner>
 
       <Suspense fallback={<div>Loading...</div>}>
