@@ -33,7 +33,7 @@ const Tickets = ({ticketsPromise,tickets,setTickets,taskStatus,setTaskStatus,res
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {tickets.map((ticket) =>(
             <div key={ticket.id} onClick={() => handleAddToTask(ticket)}
-              className="w-[460px] p-5 rounded-xl bg-[#ebebebe5] hover:shadow-lg transition">
+              className="w-[430px] md:w-[450px] p-5 rounded-xl bg-[#ebebebe5] hover:shadow-lg transition">
               <div className="flex justify-between items-center">
                 <h1 className="font-bold">{ticket.title}</h1>
                 <p className={`w-[90px] h-[29px] flex items-center justify-center rounded-xl ${ticket.status === "Open"

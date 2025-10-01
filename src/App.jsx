@@ -12,7 +12,7 @@ function App() {
   const [tickets, setTickets] = useState([]); 
   const [taskStatus, setTaskStatus] = useState([]); 
   const [resolvedTasks, setResolvedTasks] = useState([]); 
-
+  
   const [inProgressCount, setInProgressCount] = useState(0);
   const [resolvedCount, setResolvedCount] = useState(0);
 
