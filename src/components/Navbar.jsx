@@ -12,7 +12,7 @@ const Navbar = () =>{
             <p className="font-bold text-xl text-[#130B2D]">CS — Ticket System</p>
           </div>
           <div className="hidden md:flex gap-6 items-center">
-            <a href="">Home</a>
+            <a href="">Home </a>
             <a href="">FAQ</a>
             <a href="">Changelog</a>
             <a href="">Blog</a>
