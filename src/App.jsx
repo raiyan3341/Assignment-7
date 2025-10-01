@@ -9,9 +9,9 @@ import "react-toastify/dist/ReactToastify.css";
 const ticketsPromise = fetch("./tickets.json").then((res) => res.json());
 
 function App() {
-  const [tickets, setTickets] = useState([]); // Customer tickets
-  const [taskStatus, setTaskStatus] = useState([]); // In-progress tasks
-  const [resolvedTasks, setResolvedTasks] = useState([]); // Resolved tasks
+  const [tickets, setTickets] = useState([]); 
+  const [taskStatus, setTaskStatus] = useState([]); 
+  const [resolvedTasks, setResolvedTasks] = useState([]); 
 
   const [inProgressCount, setInProgressCount] = useState(0);
   const [resolvedCount, setResolvedCount] = useState(0);

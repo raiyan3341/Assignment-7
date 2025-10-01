@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { Calendar } from "lucide-react";
 
 const Tickets = ({ticketsPromise,tickets,setTickets,taskStatus,setTaskStatus,resolvedTasks,setResolvedTasks,
-  inProgressCount,setInProgressCount,resolvedCount,setResolvedCount,}) => {
+  inProgressCount,setInProgressCount,resolvedCount,setResolvedCount,}) =>{
   useEffect(() =>{
     ticketsPromise.then((data)=> setTickets(data));
   }, [ticketsPromise, setTickets]);
@@ -31,17 +31,14 @@ const Tickets = ({ticketsPromise,tickets,setTickets,taskStatus,setTaskStatus,res
       <div className="flex-1">
         <h1 className="text-xl font-bold mb-6">Customer Tickets</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {tickets.map((ticket) => (
+          {tickets.map((ticket) =>(
             <div key={ticket.id} onClick={() => handleAddToTask(ticket)}
               className="w-[460px] p-5 rounded-xl bg-[#ebebebe5] hover:shadow-lg transition">
               <div className="flex justify-between items-center">
                 <h1 className="font-bold">{ticket.title}</h1>
-                <p className={`w-[90px] h-[29px] flex items-center justify-center rounded-xl ${
-                    ticket.status === "Open"
-                      ? "bg-[#B9F8CF]"
-                      : ticket.status === "In-Progress"
-                      ? "bg-yellow-200"
-                      : "bg-gray-300"
+                <p className={`w-[90px] h-[29px] flex items-center justify-center rounded-xl ${ticket.status === "Open"
+                      ? "bg-[#B9F8CF]" : ticket.status === "In-Progress"
+                      ? "bg-yellow-200" : "bg-gray-300"
                   }`}>
                   {ticket.status}
                 </p>
@@ -52,15 +49,11 @@ const Tickets = ({ticketsPromise,tickets,setTickets,taskStatus,setTaskStatus,res
               <div className="flex justify-between mt-3 text-sm">
                 <div className="flex gap-4">
                   <p>{ticket.id}</p>
-                  <p className={`font-semibold ${
-                      ticket.priority.includes("HIGH")
-                        ? "text-red-500"
-                        : ticket.priority.includes("MEDIUM")
-                        ? "text-yellow-500"
-                        : "text-green-500"
+                  <p className={`font-semibold ${ticket.priority.includes("HIGH")
+                        ? "text-red-500" : ticket.priority.includes("MEDIUM")
+                        ? "text-yellow-500" : "text-green-500"
                     }`}>
-                    {ticket.priority}
-                  </p>
+                    {ticket.priority}</p>
                 </div>
                 <div className="flex gap-4">
                   <p>{ticket.assignee}</p>
@@ -77,8 +70,7 @@ const Tickets = ({ticketsPromise,tickets,setTickets,taskStatus,setTaskStatus,res
         )}
 
         {taskStatus.map((ticket) =>(
-          <div key={ticket.id}
-            className="grid grid-rows-1 mt-4 p-3 bg-gray-100 rounded-md">
+          <div key={ticket.id} className="grid grid-rows-1 mt-4 p-3 bg-gray-100 rounded-md">
             <p className="mb-2 font-medium">{ticket.title}</p>
             <button onClick={() => handleComplete(ticket)}
               className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600">Complete</button>

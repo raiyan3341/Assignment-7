@@ -39,9 +39,7 @@ const Navbar = () =>{
           <a href="" className="block">Blog</a>
           <a href="" className="block">Download</a>
           <a href="" className="block">Contact</a>
-          <button className="w-full bg-gradient-to-tr from-[#632ee3] to-[#9f62f2] py-2 rounded-xl text-white">
-            <span className="text-xl">+</span> New Ticket
-          </button>
+          <button className="w-full bg-gradient-to-tr from-[#632ee3] to-[#9f62f2] py-2 rounded-xl text-white"><span className="text-xl">+</span> New Ticket</button>
         </div>
       )}
     </nav>
