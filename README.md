@@ -1,13 +1,13 @@
 1. JSX is a syntax used in React that looks like HTML but works in JavaScript.
  it’s used:
-a.Makes writing React components easier and more readable.
-b.Lets you mix HTML-like code with JavaScript.
-c.React converts JSX into normal JavaScript that the browser can understand.
+(a).Makes writing React components easier and more readable.
+(b).Lets you mix HTML-like code with JavaScript.
+(c).React converts JSX into normal JavaScript that the browser can understand.
 
 
-2. a.Props are used to pass data from parent to child components. State is used to store local data inside a component.
-b.Props are read-only and cannot be changed by the component itself. State is mutable and can be updated using setState or useState.
-c.Props make components reusable by giving them dynamic data. State makes components interactive because it can change over time.
+2. (a).Props are used to pass data from parent to child components. State is used to store local data inside a component.
+(b).Props are read-only and cannot be changed by the component itself. State is mutable and can be updated using setState or useState.
+(c).Props make components reusable by giving them dynamic data. State makes components interactive because it can change over time.
 
 
 3.useState is a React hook to store data in a component.
