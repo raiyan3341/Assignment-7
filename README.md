@@ -1,16 +1,32 @@
-# React + Vite
+1. JSX is a syntax used in React that looks like HTML but works in JavaScript.
+ it’s used:
+a.Makes writing React components easier and more readable.
+b.Lets you mix HTML-like code with JavaScript.
+c.React converts JSX into normal JavaScript that the browser can understand.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+2. a.Props are used to pass data from parent to child components. State is used to store local data inside a component.
+b.Props are read-only and cannot be changed by the component itself. State is mutable and can be updated using setState or useState.
+c.Props make components reusable by giving them dynamic data. State makes components interactive because it can change over time.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+3.useState is a React hook to store data in a component.
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+It gives two things: the current value and a function to update it.
+Example: const [count, setCount] = useState(0);
+count is the value, setCount updates it.
+When you update the state, the component re-renders automatically.
+It’s used to make components interactive.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+4.To share state between components, you lift the state up to their common parent.
+The parent stores the state using useState.
+The parent passes the state and update function as props to child components.
+Children can read the state or update it by calling the parent’s function.
+This way, multiple components can use the same state.
+
+
+5.React uses camelCase for event names onClick, onChange.
+You pass a function to handle the event, not a string.
+Example: <button onClick={handleClick}>Click Me</button>
+Event handling in React is similar to HTML but uses JSX syntax and functions.
