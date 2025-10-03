@@ -5,12 +5,18 @@ import { Calendar } from "lucide-react";
 const Tickets = ({ticketsPromise,tickets,setTickets,taskStatus,setTaskStatus,resolvedTasks,setResolvedTasks,
   inProgressCount,setInProgressCount,resolvedCount,setResolvedCount,}) =>{
   useEffect(() =>{
-    ticketsPromise.then((data)=> setTickets(data));
+    ticketsPromise.then((data)=> 
+      setTickets(data.map((t) => ({ ...t, status: "Open" }))) 
+  );
   }, [ticketsPromise, setTickets]);
 
 
-  const handleAddToTask = (ticket) =>{
-    if (!taskStatus.some((t) => t.id === ticket.id)){
+   const handleAddToTask = (ticket) => {
+    if (ticket.status === "Open") {
+      const updatedTickets = tickets.map((t) =>
+        t.id === ticket.id ? { ...t, status: "In-Progress" } : t
+      );
+      setTickets(updatedTickets);
       setTaskStatus([...taskStatus, { ...ticket, status: "In-Progress" }]);
       setInProgressCount(inProgressCount + 1);
       toast.info("In-Progress");
@@ -18,9 +24,12 @@ const Tickets = ({ticketsPromise,tickets,setTickets,taskStatus,setTaskStatus,res
   };
 
   const handleComplete = (ticket) =>{
-    setTaskStatus(taskStatus.filter((t) => t.id !== ticket.id));
+    const updatedTickets = tickets.filter((t) => 
+      t.id !== ticket.id);
+    setTickets(updatedTickets);
+    setTaskStatus(taskStatus.filter((t) => 
+      t.id !== ticket.id));
     setResolvedTasks([...resolvedTasks, { ...ticket, status: "Resolved" }]);
-    setTickets(tickets.filter((t) => t.id !== ticket.id));
     setInProgressCount(inProgressCount - 1);
     setResolvedCount(resolvedCount + 1);
     toast.success("Complete");
